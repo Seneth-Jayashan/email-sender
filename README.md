@@ -5,17 +5,17 @@
 [![Nodemailer](https://img.shields.io/badge/powered%20by-Nodemailer-orange)](https://nodemailer.com/)
 [![License](https://img.shields.io/npm/l/@onexnpm/email-sender.svg)](LICENSE)
 
-> A simple, lightweight wrapper for **Nodemailer** to send emails, fully configurable through environment variables.
+> A simple, lightweight wrapper for **Nodemailer** to send emails — fully configurable through environment variables.
 
 ---
 
 ## 🚀 Features
 
-- ⚡ Quick setup — no config files needed
-- 🔒 Secure — credentials loaded from `process.env`
-- 📦 Minimal dependency footprint
-- 🧩 Fully compatible with any Node.js project
-- 💬 Works with text or HTML emails
+- ⚡ **Quick setup** — no extra config files required  
+- 🔒 **Secure** — credentials loaded from `process.env`  
+- 📦 **Minimal dependencies** (just Nodemailer + dotenv)  
+- 🧩 **Works with any SMTP provider** (Zoho, Gmail, Outlook, etc.)  
+- 💬 **Supports text or HTML emails**
 
 ---
 
@@ -33,42 +33,44 @@ yarn add @onexnpm/email-sender
 
 ## ⚙️ Configuration
 
-Create a .env file in your project root
+Create a `.env` file in your project root:
 
-```bash
+```env
 SMTP_HOST=smtp.email.com
 SMTP_PORT=465
 SMTP_USER=your@email.com
 SMTP_PASS=your_app_password
 APP_NAME=YourAppName
 ```
-- 💡 You can use any SMTP provider — not just email — by changing the SMTP host and port.
+
+💡 You can use **any SMTP provider** — not just Zoho — by changing the `SMTP_HOST` and `SMTP_PORT`.
 
 ---
 
 ## 💻 Usage
 
-1️⃣ Simple Example
+### 1️⃣ Simple Example
 
-```bash
+```js
 import sendEmail from '@onexnpm/email-sender';
 
 // Ensure your .env variables are loaded by your app first!
 try {
   await sendEmail({
     to: 'user@example.com',
-    subject: 'Hello from email!',
+    subject: 'Hello from Email!',
     html: '<h1>Welcome to Our Service 🚀</h1><p>This is a test email.</p>'
   });
 } catch (error) {
-  console.error("Failed to send email:", error);
+  console.error('Failed to send email:', error);
 }
 ```
 
-2️⃣ Using Named Import
+---
 
-```bash
+### 2️⃣ Using Named Import
 
+```js
 import { sendEmail } from '@onexnpm/email-sender';
 
 const mailOptions = {
@@ -78,57 +80,93 @@ const mailOptions = {
 };
 
 await sendEmail(mailOptions);
-
 ```
 
-3️⃣ Console Output Example
+---
+
+### 3️⃣ Console Output Example
 
 ```bash
+✅ Mailer is configured and ready to send emails.
 📧 Email sent successfully: <b658f8a9b1f2e...@smtp.email.com>
 ```
 
-## 🧠 Environment Variables
+---
+
+### 🧩 Example Error Output
 
 ```bash
-| Variable    | Description                      | Example Value     |
-| ----------- | -------------------------------- | ----------------- |
-| `SMTP_HOST` | SMTP server host                 | `smtp.zoho.com`   |
-| `SMTP_PORT` | SMTP server port                 | `465` or `587`    |
-| `SMTP_USER` | Email address for authentication | `your@zoho.com`   |
-| `SMTP_PASS` | SMTP app password                | `yourAppPassword` |
-| `APP_NAME`  | Optional display name for sender | `My Company`      |
+❌ Mailer configuration error: Invalid login
 ```
 
+---
+
+## 🧠 Environment Variables
+
+| Variable     | Description                      | Example Value     |
+| ------------- | -------------------------------- | ----------------- |
+| `SMTP_HOST`   | SMTP server host                 | `smtp.zoho.com`   |
+| `SMTP_PORT`   | SMTP server port                 | `465` or `587`    |
+| `SMTP_USER`   | Email address for authentication | `your@zoho.com`   |
+| `SMTP_PASS`   | SMTP app password                | `yourAppPassword` |
+| `APP_NAME`    | Optional display name for sender | `My Company`      |
+
+---
+
+## 📂 Example Project Structure
+
+```
+project/
+├── .env
+├── index.js
+├── package.json
+└── node_modules/
+```
+
+---
+
 ## ⚙️ How It Works
-- Uses Nodemailer internally.
 
-- Reads all SMTP configurations directly from process.env.
+- Uses **Nodemailer** internally  
+- Reads SMTP configuration directly from `process.env`  
+- Creates a reusable transporter on import  
+- Sends emails using a single helper function: `sendEmail()`
 
-- Creates a reusable transporter when the package is imported.
-
-- Sends emails using a single helper function: sendEmail().
+---
 
 ## 🛠️ Requirements
-- Node.js v18+
 
-- A valid SMTP account (e.g., email, Gmail, Outlook, etc.)
+- Node.js **v18+**  
+- A valid **SMTP account** (Zoho, Gmail, Outlook, etc.)  
+- Ensure your app loads environment variables (e.g., via `dotenv`)
 
-- Your application must load the variables above into process.env.
+---
 
 ## 🧰 Development
-- Clone the repo if you want to contribute:
+
+Clone the repo if you want to contribute:
 
 ```bash
-git clone [https://github.com/Seneth-Jayashan/email-sender.git](https://github.com/Seneth-Jayashan/email-sender.git)
+git clone https://github.com/Seneth-Jayashan/email-sender.git
 cd email-sender
 npm install
 ```
 
+---
+
 ## 🧑‍💻 Author
-- [Seneth Jayashan](https://github.com/Seneth-Jayashan)
+
+**Seneth Jayashan**  
+🔗 [GitHub](https://github.com/Seneth-Jayashan)
+
+---
 
 ## 📄 License
-- This project is licensed under the ISC License – see the LICENSE file for details.
+
+This project is licensed under the **ISC License** – see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## ⭐ Support
-- If you like this package, consider giving it a ⭐ on GitHub!
+
+If you like this package, please consider giving it a ⭐ on [GitHub](https://github.com/Seneth-Jayashan/email-sender)!
