@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@onexnpm/email-sender.svg?color=blue)](https://www.npmjs.com/package/@onexnpm/email-sender)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 [![Nodemailer](https://img.shields.io/badge/powered%20by-Nodemailer-orange)](https://nodemailer.com/)
-[![License](https://img.shields.io/npm/l/@onexnpm/email-sender.svg)](LICENSE)
+[![License](https://img.shields.io/npm/l/@onexnpm/email-sender)](LICENSE)
 
 > A simple, lightweight wrapper for **Nodemailer** to send emails — fully configurable through environment variables.
 
