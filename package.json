@@ -1,0 +1,44 @@
+{
+  "name": "@onexnpm/email-sender",
+  "version": "1.0.1",
+  "description": "A simple wrapper for Nodemailer to send emails, configured through .env variables.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "config/mailer.js"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seneth-Jayashan/email-sender.git"
+  },
+  "keywords": [
+    "email",
+    "mail",
+    "sender",
+    "nodemailer",
+    "smtp",
+    "transactional"
+  ],
+  "author": "S JAY (https://github.com/Seneth-Jayashan)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seneth-Jayashan/email-sender/issues"
+  },
+  "homepage": "https://github.com/Seneth-Jayashan/email-sender#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.10"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
